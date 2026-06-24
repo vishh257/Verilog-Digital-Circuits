@@ -1,0 +1,25 @@
+#! /mingw64/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_000001c0e46d6780 .scope module, "twoto1mux" "twoto1mux" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "I";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+o000001c0e470a9b8 .functor BUFZ 2, c4<zz>; HiZ drive
+v000001c0e46d6fb0_0 .net "I", 1 0, o000001c0e470a9b8;  0 drivers
+o000001c0e470a9e8 .functor BUFZ 1, c4<z>; HiZ drive
+v000001c0e46d6910_0 .net "sel", 0 0, o000001c0e470a9e8;  0 drivers
+v000001c0e46d69b0_0 .net "y", 0 0, L_000001c0e46d6a50;  1 drivers
+L_000001c0e46d6a50 .part/v o000001c0e470a9b8, o000001c0e470a9e8, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "2to1mux.v";
