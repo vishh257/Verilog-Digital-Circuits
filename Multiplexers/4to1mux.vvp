@@ -1,0 +1,60 @@
+#! /mingw64/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_000001fc8c6da690 .scope module, "fourto1mux" "fourto1mux" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+o000001fc8c6db338 .functor BUFZ 4, c4<zzzz>; HiZ drive
+v000001fc8c721250_0 .net "in", 3 0, o000001fc8c6db338;  0 drivers
+o000001fc8c6db368 .functor BUFZ 2, c4<zz>; HiZ drive
+v000001fc8c720fd0_0 .net "sel", 1 0, o000001fc8c6db368;  0 drivers
+v000001fc8c7216b0_0 .net "t1", 0 0, L_000001fc8c720c10;  1 drivers
+v000001fc8c721430_0 .net "t2", 0 0, L_000001fc8c720d50;  1 drivers
+v000001fc8c720b70_0 .net "y", 0 0, L_000001fc8c720e90;  1 drivers
+L_000001fc8c720cb0 .part o000001fc8c6db338, 0, 2;
+L_000001fc8c721070 .part o000001fc8c6db368, 0, 1;
+L_000001fc8c721890 .part o000001fc8c6db338, 2, 2;
+L_000001fc8c720df0 .part o000001fc8c6db368, 0, 1;
+L_000001fc8c7214d0 .concat [ 1 1 0 0], L_000001fc8c720c10, L_000001fc8c720d50;
+L_000001fc8c7212f0 .part o000001fc8c6db368, 1, 1;
+S_000001fc8c6da820 .scope module, "mux1" "twoto1mux" 2 8, 3 1 0, S_000001fc8c6da690;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "I";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+v000001fc8c617f30_0 .net "I", 1 0, L_000001fc8c720cb0;  1 drivers
+v000001fc8c617fd0_0 .net "sel", 0 0, L_000001fc8c721070;  1 drivers
+v000001fc8c6a6b80_0 .net "y", 0 0, L_000001fc8c720c10;  alias, 1 drivers
+L_000001fc8c720c10 .part/v L_000001fc8c720cb0, L_000001fc8c721070, 1;
+S_000001fc8c6da9b0 .scope module, "mux2" "twoto1mux" 2 9, 3 1 0, S_000001fc8c6da690;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "I";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+v000001fc8c61aea0_0 .net "I", 1 0, L_000001fc8c721890;  1 drivers
+v000001fc8c61af40_0 .net "sel", 0 0, L_000001fc8c720df0;  1 drivers
+v000001fc8c71f840_0 .net "y", 0 0, L_000001fc8c720d50;  alias, 1 drivers
+L_000001fc8c720d50 .part/v L_000001fc8c721890, L_000001fc8c720df0, 1;
+S_000001fc8c71f8e0 .scope module, "mux3" "twoto1mux" 2 10, 3 1 0, S_000001fc8c6da690;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "I";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+v000001fc8c6d7c30_0 .net "I", 1 0, L_000001fc8c7214d0;  1 drivers
+v000001fc8c6d7cd0_0 .net "sel", 0 0, L_000001fc8c7212f0;  1 drivers
+v000001fc8c7219d0_0 .net "y", 0 0, L_000001fc8c720e90;  alias, 1 drivers
+L_000001fc8c720e90 .part/v L_000001fc8c7214d0, L_000001fc8c7212f0, 1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "4to1mux.v";
+    "2to1mux.v";

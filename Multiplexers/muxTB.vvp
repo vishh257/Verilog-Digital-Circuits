@@ -1,0 +1,81 @@
+#! /mingw64/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 10;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_000002122df69630 .scope module, "mux_test_bench" "mux_test_bench" 2 3;
+ .timescale -8 -10;
+v000002122dfc4b90_0 .var "input1", 3 0;
+v000002122dfc40f0_0 .var "select", 1 0;
+v000002122dfc4410_0 .net "x", 0 0, L_000002122dfc4730;  1 drivers
+S_000002122df69c00 .scope module, "DUT" "fourto1mux" 2 9, 3 1 0, S_000002122df69630;
+ .timescale -8 -10;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+v000002122dfc4e10_0 .net "in", 3 0, v000002122dfc4b90_0;  1 drivers
+v000002122dfc4eb0_0 .net "sel", 1 0, v000002122dfc40f0_0;  1 drivers
+v000002122dfc4af0_0 .net "t1", 0 0, L_000002122dfc44b0;  1 drivers
+v000002122dfc4870_0 .net "t2", 0 0, L_000002122dfc4550;  1 drivers
+v000002122dfc4050_0 .net "y", 0 0, L_000002122dfc4730;  alias, 1 drivers
+L_000002122dfc42d0 .part v000002122dfc4b90_0, 0, 2;
+L_000002122dfc4190 .part v000002122dfc40f0_0, 0, 1;
+L_000002122dfc49b0 .part v000002122dfc4b90_0, 2, 2;
+L_000002122dfc4230 .part v000002122dfc40f0_0, 0, 1;
+L_000002122dfc4f50 .concat [ 1 1 0 0], L_000002122dfc44b0, L_000002122dfc4550;
+L_000002122dfc4910 .part v000002122dfc40f0_0, 1, 1;
+S_000002122df69d90 .scope module, "mux1" "twoto1mux" 3 8, 4 1 0, S_000002122df69c00;
+ .timescale -8 -10;
+    .port_info 0 /INPUT 2 "I";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+v000002122df697c0_0 .net "I", 1 0, L_000002122dfc42d0;  1 drivers
+v000002122debdf20_0 .net "sel", 0 0, L_000002122dfc4190;  1 drivers
+v000002122df69f20_0 .net "y", 0 0, L_000002122dfc44b0;  alias, 1 drivers
+L_000002122dfc44b0 .part/v L_000002122dfc42d0, L_000002122dfc4190, 1;
+S_000002122df7aa10 .scope module, "mux2" "twoto1mux" 3 9, 4 1 0, S_000002122df69c00;
+ .timescale -8 -10;
+    .port_info 0 /INPUT 2 "I";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+v000002122df7aba0_0 .net "I", 1 0, L_000002122dfc49b0;  1 drivers
+v000002122df7ac40_0 .net "sel", 0 0, L_000002122dfc4230;  1 drivers
+v000002122dfc4cd0_0 .net "y", 0 0, L_000002122dfc4550;  alias, 1 drivers
+L_000002122dfc4550 .part/v L_000002122dfc49b0, L_000002122dfc4230, 1;
+S_000002122df7ace0 .scope module, "mux3" "twoto1mux" 3 10, 4 1 0, S_000002122df69c00;
+ .timescale -8 -10;
+    .port_info 0 /INPUT 2 "I";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "y";
+v000002122dfc4c30_0 .net "I", 1 0, L_000002122dfc4f50;  1 drivers
+v000002122dfc45f0_0 .net "sel", 0 0, L_000002122dfc4910;  1 drivers
+v000002122dfc47d0_0 .net "y", 0 0, L_000002122dfc4730;  alias, 1 drivers
+L_000002122dfc4730 .part/v L_000002122dfc4f50, L_000002122dfc4910, 1;
+    .scope S_000002122df69630;
+T_0 ;
+    %vpi_call 2 13 "$display", "4to1 Multiplexer Test Bench" {0 0 0};
+    %vpi_call 2 14 "$monitor", " input1 = %b, select = %b, x = %b", v000002122dfc4b90_0, v000002122dfc40f0_0, v000002122dfc4410_0 {0 0 0};
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v000002122dfc4b90_0, 0, 4;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000002122dfc40f0_0, 0, 2;
+    %delay 1000, 0;
+    %pushi/vec4 4, 0, 4;
+    %store/vec4 v000002122dfc4b90_0, 0, 4;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000002122dfc40f0_0, 0, 2;
+    %delay 1000, 0;
+    %vpi_call 2 19 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "muxTB.v";
+    "4to1mux.v";
+    "2to1mux.v";
